@@ -1,57 +1,77 @@
-rconsolename("Tendust Loader.exe")
+-- Gui to Lua
+-- Version: 3.2
 
-rconsoleinfo("Loading Tendust.exe!".."\n")
-wait(1.6)
+-- Instances:
 
+local TendustExecuting = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Welcome = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
 
-if KRNL_LOADED then
-	rconsoleinfo("You're using KRNL!".. "\n")
-	wait(0.5)
-	rconsolename("Tendust Loader.exe | krnl nice tbh")
-	rconsolewarn("If you leak Tendust and get caught, you will get blacklisted from accounts I know of. If you use it on another account and I find out I will change the loadstring.".."\n")
-	wait(1.6)
-	rconsoleinfo("Loading last parts of Tendust..")
-	wait(1.6)
-	rconsoleinfo("Tendust.exe loaded successfully! | (remember to do the key system)")
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/minicup1/hahahahahtryleakingthis/main/hahahahahtryleakingthis"),true)()
-	wait(2.5)	
-	rconsoleclose(print("Tendust loaded!"))
-elseif syn.request() then
-	rconsoleinfo("You're using Synapse!".. "\n")
-	wait(0.5)
-	rconsolename("Tendust Loader.exe | damn ur rich mind sparing me a key?")
-	rconsolewarn("If you leak Tendust and get caught, you will get blacklisted from accounts I know of. If you use it on another account and I find out I will change the loadstring.".."\n")
-	wait(1.6)
-	rconsoleinfo("Loading last parts of Tendust..")
-	wait(1.6)
-	rconsoleinfo("Tendust loaded successfully!")
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/minicup1/hahahahahtryleakingthis/main/hahahahahtryleakingthis"),true)()
-	wait(2.5)	
-	rconsoleclose(print("Tendust loaded!"))
-elseif pebc_execute then
-	rconsoleinfo("You're using ProtoSmasher".. "\n")
-	wait(0.5)
+--Properties:
 
-	rconsolewarn("If you leak Tendust and get caught, you will get blacklisted from accounts I know of. If you use it on another account and I find out I will change the loadstring.".."\n")
-	wait(1.6)
-	rconsoleinfo("Loading last parts of Tendust..")
-	wait(1.6)
-	rconsoleinfo("Tendust loaded successfully!")
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/minicup1/hahahahahtryleakingthis/main/hahahahahtryleakingthis"),true)()
-	wait(2.5)
-	rconsoleclose(print("Tendust loaded!"))
+TendustExecuting.Name = "TendustExecuting"
+TendustExecuting.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+TendustExecuting.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = TendustExecuting
+MainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+MainFrame.Position = UDim2.new(0.382983953, 0, 0.999473929, 0)
+MainFrame.Size = UDim2.new(0.233135194, 0, 0.100000001, 0)
 
+UICorner.Parent = MainFrame
 
-elseif is_sirhurt_closure then
-	rconsoleinfo("bruh".. "\n")
-	rconsolename("Tendust Loader.exe | why why just why")
+Welcome.Name = "Welcome"
+Welcome.Parent = MainFrame
+Welcome.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Welcome.Position = UDim2.new(0.162745416, 0, 0.167825282, 0)
+Welcome.Size = UDim2.new(0, 303, 0, 62)
+Welcome.Font = Enum.Font.GothamBold
+Welcome.Text = "Welcome to Tendust, "
+Welcome.TextColor3 = Color3.fromRGB(255, 255, 255)
+Welcome.TextSize = 14.000
+Welcome.TextWrapped = true
+
+UICorner_2.Parent = Welcome
+
+-- Scripts:
+
+local function ISGP_fake_script() -- Welcome.LocalScript 
+	local script = Instance.new('LocalScript', Welcome)
+
 	wait(1)
-	rconsoleclose()
-elseif secure_load then
-	rconsoleinfo("bruh".. "\n")
-	rconsolename("Tendust Loader.exe | why why just why")
-	wait(1)
-	rconsoleclose()
+	script.Parent.Parent:TweenPosition(UDim2.new(0.383, 0,0.89, 0))
+	script.Parent.Text = "Welcome to Tendust, ".. game.Players.LocalPlayer.DisplayName
+	wait(2)
+	if KRNL_LOADED then
+	   print("TENDUST | KRNL Detected")
+	   wait(4)
+	   script.Parent.Text = "Tendust is executing.."
+	   wait(0.5)
+	   loadstring(game:HttpGet('https://raw.githubusercontent.com/minicup1/hahahahahtryleakingthis/main/hahahahahtryleakingthis',true))()
+	elseif syn.request() then
+	   print("TENDUST | Synapse X Detected (mind sparing me a key?")
+	   wait(4)
+	   script.Parent.Text = "Tendust is executing.."
+	   wait(0.5)
+	   loadstring(game:HttpGet('https://raw.githubusercontent.com/minicup1/hahahahahtryleakingthis/main/hahahahahtryleakingthis',true))()
+	elseif pebc_execute then
+	   print("TENDUST | ProtoSmasher Detected")
+	   wait(4)
+	   script.Parent.Text = "Tendust is executing.."
+	   wait(0.5)
+	   loadstring(game:HttpGet('https://raw.githubusercontent.com/minicup1/hahahahahtryleakingthis/main/hahahahahtryleakingthis',true))()
+	elseif is_sirhurt_closure then
+	   print("TENDUST | bruh")
+	   wait(1)
+	   TendustExecuting:Destroy()
+	elseif secure_load then
+	print("TENDUST | bruh")
+	   wait(1)
+	   TendustExecuting:Destroy()
+	end
 end
+coroutine.wrap(ISGP_fake_script)()
 
