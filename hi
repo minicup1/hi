@@ -12,7 +12,7 @@ local UICorner_2 = Instance.new("UICorner")
 --Properties:
 
 TendustExecuting.Name = "TendustExecuting"
-TendustExecuting.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+TendustExecuting.Parent = game.CoreGui
 TendustExecuting.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 MainFrame.Name = "MainFrame"
@@ -27,7 +27,7 @@ Welcome.Name = "Welcome"
 Welcome.Parent = MainFrame
 Welcome.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 Welcome.Position = UDim2.new(0.162745416, 0, 0.167825282, 0)
-Welcome.Size = UDim2.new(0, 303, 0, 62)
+Welcome.Size = UDim2.new(0.75, 0,0.648, 0)
 Welcome.Font = Enum.Font.GothamBold
 Welcome.Text = "Welcome to Tendust, "
 Welcome.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -51,18 +51,24 @@ local function ISGP_fake_script() -- Welcome.LocalScript
 	   script.Parent.Text = "Tendust is executing.."
 	   wait(0.5)
 	   loadstring(game:HttpGet('https://raw.githubusercontent.com/minicup1/hahahahahtryleakingthis/main/hahahahahtryleakingthis',true))()
+	   wait(0.5)
+	   TendustExecuting:Destroy()
 	elseif syn.request() then
 	   print("TENDUST | Synapse X Detected (mind sparing me a key?")
 	   wait(4)
 	   script.Parent.Text = "Tendust is executing.."
 	   wait(0.5)
 	   loadstring(game:HttpGet('https://raw.githubusercontent.com/minicup1/hahahahahtryleakingthis/main/hahahahahtryleakingthis',true))()
+	   wait(0.5)
+	   TendustExecuting:Destroy()
 	elseif pebc_execute then
 	   print("TENDUST | ProtoSmasher Detected")
 	   wait(4)
 	   script.Parent.Text = "Tendust is executing.."
 	   wait(0.5)
 	   loadstring(game:HttpGet('https://raw.githubusercontent.com/minicup1/hahahahahtryleakingthis/main/hahahahahtryleakingthis',true))()
+	   wait(0.5)
+	   TendustExecuting:Destroy()
 	elseif is_sirhurt_closure then
 	   print("TENDUST | bruh")
 	   wait(1)
